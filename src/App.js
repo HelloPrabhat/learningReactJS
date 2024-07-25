@@ -1,23 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+// import About from './components/About.js';
+import Navbar from './components/Navbar.js';
+import TextForm from './components/TextForm.js'; // why capital letter giving error.
+import {useState} from 'react';
 
 function App() {
+  
+  const [mode, setMode] = useState({
+    color: "#003049",
+    backgroundColor: "white"
+  });
+  
+  const toggleMode = () => {
+    if(mode.color==="#003049"){
+      setMode({
+        color: "white",
+        backgroundColor: "#003049"
+      });
+    } else {
+        setMode({
+          color: "#003049",
+          backgroundColor: "white"
+        });
+    }
+  }
+
+  let hello = document.body;
+  hello.style.backgroundColor = mode.backgroundColor ;
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={mode}>
+      <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
+      <div className='container'>
+        <TextForm Heading="Write your blog : " mode={mode} toggleMode={toggleMode} />
+        {/* <About/> */}
+      </div>
     </div>
   );
 }
