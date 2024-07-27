@@ -1,3 +1,9 @@
+:root{
+  --bs-navColor: #14213d;
+}
+
+
+
 .App {
   text-align: center;
 }

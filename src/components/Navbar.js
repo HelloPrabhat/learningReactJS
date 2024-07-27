@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 export default function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark " style={{backgroundColor:"#14213d"}}>{ /*bg-dark bg-body-tertiary*/}
-    <div className="container-fluid">
+    <nav className={`navbar navbar-expand-lg navbar-${props.mode.backgroundColor==='white'? 'light': 'dark'} bg-${props.mode.backgroundColor==='white'? 'light': 'dark'}`} >
+    {/* bg-body-tertiary style={{backgroundColor:"#14213d"}}*/}
+    <div className="container-fluid" >
       <a className="navbar-brand" href="/">{props.title}</a>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
@@ -33,7 +34,7 @@ export default function Navbar(props) {
         {/* toggle Mode button */}
         <div className="form-check form-switch">
           <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-          <label className="form-check-label mx-2" style={{color:"white",fontSize:"18px"}}   htmlFor="flexSwitchCheckDefault">Mode</label>
+          <label className="form-check-label mx-2" style={{color:`${props.mode.color}`,fontSize:"18px"}}   htmlFor="flexSwitchCheckDefault">Mode</label>
         </div>
 
         <form className="d-flex" role="search">

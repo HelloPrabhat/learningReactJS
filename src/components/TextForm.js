@@ -27,6 +27,7 @@ export default function TextForm(props) {
             
             <label htmlFor="exampleFormControlTextarea1" className="form-label">{props.Heading}</label>
             <textarea className="form-control" id="exampleFormControlTextarea1" style={props.mode} value={text} onChange={handleOnChange} rows="10" placeholder='Enter your Text here'></textarea>
+
             <div className="my-3">
               <button className="btn btn-primary" onClick={handleUpClick} >UPPER CASE</button>
               <button className="btn btn-primary mx-3" onClick={handleLoClick} >lower case</button>
@@ -39,7 +40,7 @@ export default function TextForm(props) {
         </div>
         <div className="container" >
           <h2>Preview : </h2>
-          <p>{text}</p>
+          <p className="container" >{text}</p>
         </div>
     </>
   )
